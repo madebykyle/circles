@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas Circles</title>
+<style>
+.circle{
+	border-radius: 50%;
+	background-color: rgb(116, 187, 167);
+	position: absolute;
+}
+#circlesSlide{
+	display: block;
+	background-color: rgb(43, 55, 78);
+
+}
+#black{
+	display: block;
+	background-color: black;
+
+
+}
+#yellow{
+	display: block;
+	background-color: yellow;
+
+
+}
+#blue{
+	display: block;
+	background-color: blue;
+
+
+}
+body{
+	margin:0px;
+	}
+.circleAnimated{border-radius: 50%;background-color: rgb(116, 187, 167);position: absolute;animation-name: backAndForth;animation-duration: 15s;animation-iteration-count: infinite;-webkit-animation-name: backAndForth ;-webkit-animation-duration: 15s;-webkit-animation-iteration-count: infinite;}
+
+@keyframes backAndForth{0%{transform: translate(0px, 0px);}50%{transform: translate(100px, 0px);}100%{transform: translate(0px, 0px);}}
+@-webkit-keyframes backAndForth{0%{transform: translate(0px, 0px);}50%{transform: translate(100px, 0px);}100%{transform: translate(0px, 0px);}}
+
+.circleAnimated01{border-radius: 50%;background-color: rgb(116, 187, 167);position: absolute;animation-name: backAndForth01;animation-duration: 35s;animation-iteration-count: infinite;-webkit-animation-name: backAndForth01;-webkit-animation-duration: 35s;-webkit-animation-iteration-count: infinite;}
+
+@keyframes backAndForth01{0%{transform: translate(0px, 0px);}50%{transform: translate(-200px, 0px);}100%{transform: translate(0px, 0px);}}
+@-webkit-keyframes backAndForth01{0%{transform: translate(0px, 0px);}50%{transform: translate(-200px, 0px);}100%{transform: translate(0px, 0px);}}
+
+.circleAnimated02{border-radius: 50%;background-color: rgb(116, 187, 167);position: absolute;animation-name: backAndForth02;animation-duration: 10s;animation-iteration-count: infinite;-webkit-animation-name: backAndForth02;-webkit-animation-duration: 10s;-webkit-animation-iteration-count: infinite;}
+
+@keyframes backAndForth02{0%{transform: translate(0px, 0px);}50%{transform: translate(50px, 0px);}100%{transform: translate(0px, 0px);}}
+@-webkit-keyframes backAndForth02{0%{transform: translate(0px, 0px);}50%{transform: translate(50px, 0px);}100%{transform: translate(0px, 0px);}}
+
+.circleAnimated03{border-radius: 50%;background-color: rgb(116, 187, 167);position: absolute;animation-name: backAndForth03;animation-duration: 100s;animation-iteration-count: infinite;-webkit-animation-name: backAndForth03;-webkit-animation-duration: 100s;-webkit-animation-iteration-count: infinite;}
+
+@keyframes backAndForth03{0%{transform: translate(0px, 0px);}50%{transform: translate(-50px, 0px);}100%{transform: translate(0px, 0px);}}
+@-webkit-keyframes backAndForth03{0%{transform: translate(0px, 0px);}50%{transform: translate(-50px, 0px);}100%{transform: translate(0px, 0px);}}
+
+.circleAnimated04{border-radius: 50%;background-color: rgb(116, 187, 167);position: absolute;animation-name: backAndForth04;animation-duration: 60s;animation-iteration-count: infinite;-webkit-animation-name: backAndForth04;-webkit-animation-duration: 60s;-webkit-animation-iteration-count: infinite;}
+
+@keyframes backAndForth04{0%{transform: translate(0px, 0px);}50%{transform: translate(-150px, 0px);}100%{transform: translate(0px, 0px);}}
+@-webkit-keyframes backAndForth04{0%{transform: translate(0px, 0px);}50%{transform: translate(-150px, 0px);}100%{transform: translate(0px, 0px);}}
+
+.circleAnimated05{border-radius: 50%;background-color: rgb(116, 187, 167);position: absolute;animation-name: backAndForth05;animation-duration: 50s;animation-iteration-count: infinite;-webkit-animation-name: backAndForth05;-webkit-animation-duration: 50s;-webkit-animation-iteration-count: infinite;}
+
+@keyframes backAndForth05{0%{transform: translate(0px, 0px);}50%{transform: translate(250px, 0px);}100%{transform: translate(0px, 0px);}}
+@-webkit-keyframes backAndForth05{0%{transform: translate(0px, 0px);}50%{transform: translate(250px, 0px);}100%{transform: translate(0px, 0px);}}
+
+</style>
+</head>
+
+
+
+
+<body>
+
+<div id="circlesSlide"></div>
+<div id="black"></div>
+<div id="yellow"></div>
+<div id="blue"></div>
+
+</body>
+<script>
+var howMany = 50;
+var w = window.innerWidth;
+var h = window.innerHeight;
+console.log(w);
+
+function iWannaHaveSlides(){
+	document.getElementById('circlesSlide').style.width = w +'px';
+	document.getElementById('circlesSlide').style.height = h +'px';
+	
+	document.getElementById('black').style.width = w +'px';
+	document.getElementById('black').style.height = h +'px';
+	document.getElementById('black').style.top= h +'px';
+
+	document.getElementById('yellow').style.width = w +'px';
+	document.getElementById('yellow').style.height = h +'px';
+	document.getElementById('yellow').style.top= h*2 +'px';
+
+	document.getElementById('blue').style.width = w +'px';
+	document.getElementById('blue').style.height = h +'px';
+	document.getElementById('blue').style.top= h*3 +'px';
+
+}
+
+function soManyCircles (divID,classColour){
+ for(i = 0; i < howMany; i++){
+ 	var randomSize = Math.floor(Math.random() * 200) + 30;
+ 	var randomPositionX = Math.floor(Math.random() * (w-randomSize*2)) + 50;
+ 	var randomPositionY = Math.floor(Math.random() * (h-randomSize*2)) + 50;
+ 	var howBlurry = Math.random() * 8 + 1;
+ 	var howOpaque =Math.random()+0.1;
+ 	var howAnimated = Math.floor(Math.random()*8 + 1);
+ 	var div = document.createElement('div');
+ 	div.setAttribute("style","-webkit-filter:blur("+howBlurry+"px)");
+ 	div.style.opacity = howOpaque;
+ 	div.style.width = randomSize + 'px';
+ 	div.style.height = randomSize + 'px';
+ 	div.style.left = randomPositionX + 'px';
+ 	div.style.top = randomPositionY + 'px';
+ 	if(howAnimated==1){
+ 		div.className = 'circle';
+ 	}else if(howAnimated==2){
+ 		div.className = 'circleAnimated';
+ 	}else if(howAnimated==3){
+ 		div.className = 'circleAnimated01';
+ 	}else if(howAnimated==4){
+ 		div.className = 'circleAnimated02';
+ 	}else if(howAnimated==5){
+ 		div.className = 'circleAnimated03';
+ 	}else if(howAnimated==6){
+ 		div.className = 'circleAnimated04';
+ 	}else if(howAnimated==7){
+ 		div.className = 'circleAnimated05';
+ 	}
+ 	
+ 	document.getElementById(divID).appendChild(div);
+ 	
+
+ }
+}
+
+soManyCircles('circlesSlide');
+iWannaHaveSlides();
+</script>
+</html>
